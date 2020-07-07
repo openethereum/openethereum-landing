@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import InnerContainer from '../innerContainer'
+
+import BottomSVG from './img/bottom.svg'
+import TopSVG from './img/top.svg'
+
 const Wrapper = styled.div`
   margin: 0 auto;
 
@@ -12,7 +17,7 @@ const Wrapper = styled.div`
 
 const Col = styled.div`
   max-width: 100%;
-  width: 450px;
+  width: 445px;
 `
 
 const Text = styled.h1`
@@ -59,13 +64,34 @@ const Button = styled.a`
   }
 `
 
+const ImageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 90px;
+  position: relative;
+`
+
+const Top = styled.img`
+  display: block;
+`
+
+const Bottom = styled.img`
+  display: block;
+`
+
 const Home = () => (
   <Wrapper className="home">
-    <Col>
-      <Text>Fast and feature-rich multi-network ethereum client.</Text>
-      <Button href="#">Download</Button>
-      <Button href="#">Read the docs</Button>
-    </Col>
+    <InnerContainer>
+      <Col>
+        <Text>Fast and feature-rich multi-network ethereum client.</Text>
+        <Button href="#">Download</Button>
+        <Button href="#">Read the docs</Button>
+      </Col>
+      <ImageWrapper>
+        <Top src={TopSVG} alt="" />
+        <Bottom src={BottomSVG} alt="" />
+      </ImageWrapper>
+    </InnerContainer>
   </Wrapper>
 )
 

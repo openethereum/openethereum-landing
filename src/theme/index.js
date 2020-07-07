@@ -13,7 +13,7 @@ const theme = {
     color: '#eee',
   },
   header: {
-    height: '53px',
+    height: '60px',
   },
   themeBreakPoints: {
     lg: '992px',

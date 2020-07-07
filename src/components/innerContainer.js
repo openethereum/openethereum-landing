@@ -4,7 +4,8 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  max-width: ${props => props.theme.themeBreakPoints.xl};
+  max-width: 856px;
+  padding: 0 20px;
   width: 100%;
 `
 

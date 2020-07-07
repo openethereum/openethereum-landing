@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   flex-grow: 0;
   flex-shrink: 0;
   height: ${props => props.theme.header.height};
+  padding: 17px 0 0;
   width: 100%;
 
   .innerContainer {

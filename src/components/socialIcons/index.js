@@ -15,7 +15,7 @@ const Icon = styled.a`
   display: flex;
   height: 40px;
   justify-content: center;
-  margin-left: 33px;
+  margin-left: 29px;
   text-decoration: none;
   width: 40px;
 
@@ -39,13 +39,13 @@ const IconSVG = styled.img`
 const SocialIconsData = [
   {
     href: '#',
-    image: DiscordSVG,
-    title: 'Discord',
+    image: TwitterSVG,
+    title: 'Twitter',
   },
   {
     href: '#',
-    image: TwitterSVG,
-    title: 'Twitter',
+    image: DiscordSVG,
+    title: 'Discord',
   },
   {
     href: '#',

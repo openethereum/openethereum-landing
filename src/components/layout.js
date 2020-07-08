@@ -34,7 +34,7 @@ const MobileOnlyContainer = styled(InnerContainer)`
 
 const SocialIconsBottom = styled(SocialIcons)`
   margin-top: auto;
-  padding: 20px 0 38px 0;
+  padding: 40px 0;
 `
 
 const Layout = ({ children }) => {

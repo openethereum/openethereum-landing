@@ -40,9 +40,17 @@ const Text = styled.h1`
   margin: 0 0 59px;
   text-align: center;
 
+  br {
+    display: block;
+  }
+
   @media (min-width: ${props => props.theme.themeBreakPoints.md}) {
     font-size: 40px;
     text-align: left;
+
+    br {
+      display: none;
+    }
   }
 `
 
@@ -190,7 +198,11 @@ const Bottom = styled(Image)`
 const Home = ({ ...restProps }) => (
   <Wrapper className="home" {...restProps}>
     <Col>
-      <Text>Fast and feature-rich multi-network ethereum client.</Text>
+      <Text>
+        Fast and feature-
+        <br />
+        rich multi-network ethereum client.
+      </Text>
       <Button href="https://github.com/openethereum/openethereum/releases">Download</Button>
       <Button href="https://openethereum.github.io/wiki/">Read the docs</Button>
     </Col>

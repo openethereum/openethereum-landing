@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import InnerContainer from '../innerContainer'
 
@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
 
   .innerContainer {
+    align-items: center;
     display: flex;
     flex-grow: 1;
   }
@@ -64,19 +65,87 @@ const Button = styled.a`
   }
 `
 
+const imageInitialDisplacement = '37px'
+const animationDelay = '0.5s'
+const animationDuration = '1.7s'
+const animationDisplacement = '15px'
+
+const TopImageAnimationStart = keyframes`
+  0% {
+    top: ${imageInitialDisplacement};
+  }
+  100% {
+    top: 0;
+  }
+`
+
+const TopImageAnimationLoop = keyframes`
+  0% {
+    top: 0;
+  }
+  50% {
+    top: ${animationDisplacement};
+  }
+  100% {
+    top: 0;
+  }
+`
+
+const BottomImageAnimationStart = keyframes`
+  0% {
+    bottom: ${imageInitialDisplacement};;
+  }
+  100% {
+    bottom: 0;
+  }
+`
+
+const BottomImageAnimationLoop = keyframes`
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: ${animationDisplacement};
+  }
+  100% {
+    bottom: 0;
+  }
+`
+
 const ImageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  height: 400px;
   margin-left: 90px;
   position: relative;
+  width: 196px;
+
+  &:hover {
+    .top {
+      animation: ${TopImageAnimationStart} ${animationDelay} ease-out 0s 1 backwards,
+        ${TopImageAnimationLoop} ${animationDuration} linear ${animationDelay} infinite;
+    }
+
+    .bottom {
+      animation: ${BottomImageAnimationStart} ${animationDelay} ease-out 0s 1,
+        ${BottomImageAnimationLoop} ${animationDuration} linear ${animationDelay} infinite;
+    }
+  }
 `
 
-const Top = styled.img`
+const Image = styled.img`
   display: block;
+  position: absolute;
 `
 
-const Bottom = styled.img`
-  display: block;
+const Top = styled(Image)`
+  top: ${imageInitialDisplacement};
+  /* transition: top ${animationDelay} ease-out; */
+  z-index: 5;
+`
+
+const Bottom = styled(Image)`
+  bottom: ${imageInitialDisplacement};
+  transition: bottom ${animationDelay} ease-out;
+  z-index: 1;
 `
 
 const Home = () => (
@@ -84,12 +153,12 @@ const Home = () => (
     <InnerContainer>
       <Col>
         <Text>Fast and feature-rich multi-network ethereum client.</Text>
-        <Button href="#">Download</Button>
-        <Button href="#">Read the docs</Button>
+        <Button href="https://github.com/openethereum/openethereum/releases">Download</Button>
+        <Button href="https://openethereum.github.io/wiki/">Read the docs</Button>
       </Col>
       <ImageWrapper>
-        <Top src={TopSVG} alt="" />
-        <Bottom src={BottomSVG} alt="" />
+        <Top className="image top" src={TopSVG} alt="" />
+        <Bottom className="image bottom" src={BottomSVG} alt="" />
       </ImageWrapper>
     </InnerContainer>
   </Wrapper>

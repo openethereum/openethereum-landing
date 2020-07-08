@@ -38,17 +38,17 @@ const IconSVG = styled.img`
 
 const SocialIconsData = [
   {
-    href: '#',
+    href: 'https://twitter.com/OpenEthereumOrg',
     image: TwitterSVG,
     title: 'Twitter',
   },
   {
-    href: '#',
+    href: 'https://discord.io/openethereum',
     image: DiscordSVG,
     title: 'Discord',
   },
   {
-    href: '#',
+    href: 'https://github.com/openethereum',
     image: GithubSVG,
     title: 'Github',
   },

@@ -9,12 +9,32 @@ import { GlobalStyle } from '../theme/global_style'
 
 import Header from './header'
 import InnerContainer from './innerContainer'
+import SocialIcons from './socialIcons'
 
 const MainContents = styled.div`
-  align-items: center;
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  width: 100%;
+
+  @media (min-width: ${props => props.theme.themeBreakPoints.md}) {
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+  }
+`
+
+const MobileOnlyContainer = styled(InnerContainer)`
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: ${props => props.theme.themeBreakPoints.md}) {
+    display: none;
+  }
+`
+
+const SocialIconsBottom = styled(SocialIcons)`
+  margin-top: auto;
+  padding: 20px 0 38px 0;
 `
 
 const Layout = ({ children }) => {
@@ -35,6 +55,9 @@ const Layout = ({ children }) => {
       <MainContents>
         <InnerContainer>{children}</InnerContainer>
       </MainContents>
+      <MobileOnlyContainer>
+        <SocialIconsBottom />
+      </MobileOnlyContainer>
     </ThemeProvider>
   )
 }

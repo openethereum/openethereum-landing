@@ -1,33 +1,49 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
-import InnerContainer from '../innerContainer'
-
 import BottomSVG from './img/bottom.svg'
 import TopSVG from './img/top.svg'
 
 const Wrapper = styled.div`
-  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 
-  .innerContainer {
-    align-items: center;
+  @media (min-width: ${props => props.theme.themeBreakPoints.md}) {
     display: flex;
-    flex-grow: 1;
+    flex-direction: row;
   }
 `
 
 const Col = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   max-width: 100%;
-  width: 445px;
+  order: 1;
+  width: 100%;
+
+  @media (min-width: ${props => props.theme.themeBreakPoints.md}) {
+    align-items: flex-start;
+    order: 0;
+    width: 445px;
+  }
 `
 
 const Text = styled.h1`
   color: ${props => props.theme.text.color};
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 300;
   letter-spacing: 0.89px;
   line-height: normal;
   margin: 0 0 59px;
+  text-align: center;
+
+  @media (min-width: ${props => props.theme.themeBreakPoints.md}) {
+    font-size: 40px;
+    text-align: left;
+  }
 `
 
 const Button = styled.a`
@@ -41,13 +57,17 @@ const Button = styled.a`
   justify-content: center;
   letter-spacing: 0.44px;
   line-height: normal;
-  margin-bottom: 31px;
+  margin-bottom: 57px;
   outline: 0;
   padding: 0;
   text-align: center;
   text-decoration: none;
   transition: all 0.15s ease-out;
   width: 200px;
+
+  @media (min-width: ${props => props.theme.themeBreakPoints.md}) {
+    margin-bottom: 31px;
+  }
 
   &:hover {
     font-size: 22px;
@@ -113,54 +133,71 @@ const BottomImageAnimationLoop = keyframes`
 `
 
 const ImageWrapper = styled.div`
-  height: 400px;
-  margin-left: 90px;
+  margin: 45px auto 50px;
+  order: 0;
   position: relative;
-  width: 196px;
+  width: 109px;
 
-  &:hover {
-    .top {
-      animation: ${TopImageAnimationStart} ${animationDelay} ease-out 0s 1 backwards,
-        ${TopImageAnimationLoop} ${animationDuration} linear ${animationDelay} infinite;
-    }
+  @media (min-width: ${props => props.theme.themeBreakPoints.md}) {
+    height: 400px;
+    margin: 0 0 0 90px;
+    order: 1;
+    position: relative;
+    width: 196px;
 
-    .bottom {
-      animation: ${BottomImageAnimationStart} ${animationDelay} ease-out 0s 1,
-        ${BottomImageAnimationLoop} ${animationDuration} linear ${animationDelay} infinite;
+    &:hover {
+      .top {
+        animation: ${TopImageAnimationStart} ${animationDelay} ease-out 0s 1 backwards,
+          ${TopImageAnimationLoop} ${animationDuration} linear ${animationDelay} infinite;
+      }
+
+      .bottom {
+        animation: ${BottomImageAnimationStart} ${animationDelay} ease-out 0s 1,
+          ${BottomImageAnimationLoop} ${animationDuration} linear ${animationDelay} infinite;
+      }
     }
   }
 `
 
 const Image = styled.img`
   display: block;
-  position: absolute;
+  max-width: 100%;
+  position: relative;
+
+  @media (min-width: ${props => props.theme.themeBreakPoints.md}) {
+    position: absolute;
+  }
 `
 
 const Top = styled(Image)`
-  top: ${imageInitialDisplacement};
-  /* transition: top ${animationDelay} ease-out; */
+  margin-bottom: -24px;
   z-index: 5;
+
+  @media (min-width: ${props => props.theme.themeBreakPoints.md}) {
+    margin-bottom: 0;
+    top: ${imageInitialDisplacement};
+  }
 `
 
 const Bottom = styled(Image)`
-  bottom: ${imageInitialDisplacement};
-  transition: bottom ${animationDelay} ease-out;
   z-index: 1;
+
+  @media (min-width: ${props => props.theme.themeBreakPoints.md}) {
+    bottom: ${imageInitialDisplacement};
+  }
 `
 
-const Home = () => (
-  <Wrapper className="home">
-    <InnerContainer>
-      <Col>
-        <Text>Fast and feature-rich multi-network ethereum client.</Text>
-        <Button href="https://github.com/openethereum/openethereum/releases">Download</Button>
-        <Button href="https://openethereum.github.io/wiki/">Read the docs</Button>
-      </Col>
-      <ImageWrapper>
-        <Top className="image top" src={TopSVG} alt="" />
-        <Bottom className="image bottom" src={BottomSVG} alt="" />
-      </ImageWrapper>
-    </InnerContainer>
+const Home = ({ ...restProps }) => (
+  <Wrapper className="home" {...restProps}>
+    <Col>
+      <Text>Fast and feature-rich multi-network ethereum client.</Text>
+      <Button href="https://github.com/openethereum/openethereum/releases">Download</Button>
+      <Button href="https://openethereum.github.io/wiki/">Read the docs</Button>
+    </Col>
+    <ImageWrapper>
+      <Top className="image top" src={TopSVG} alt="" />
+      <Bottom className="image bottom" src={BottomSVG} alt="" />
+    </ImageWrapper>
   </Wrapper>
 )
 

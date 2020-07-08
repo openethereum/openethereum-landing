@@ -7,7 +7,6 @@ import TwitterSVG from './img/twitter.svg'
 
 const Wrapper = styled.div`
   display: flex;
-  margin: auto 0 0 auto;
 `
 
 const Icon = styled.a`
@@ -54,8 +53,8 @@ const SocialIconsData = [
   },
 ]
 
-const SocialIcons = () => (
-  <Wrapper className="socialIcons">
+const SocialIcons = ({ ...restProps }) => (
+  <Wrapper className="socialIcons" {...restProps}>
     {SocialIconsData.map((item, index) => {
       return (
         <Icon href={item.href} title={item.title} key={index} target="_blank">

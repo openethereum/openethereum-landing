@@ -195,7 +195,7 @@ const Home = ({ ...restProps }) => (
       <Text>
         Fast and feature-
         <br />
-        rich multi-network ethereum client.
+        rich ethereum client.
       </Text>
       <Button href="https://github.com/openethereum/openethereum/releases">Download</Button>
       <Button href="https://openethereum.github.io/wiki/">Read the docs</Button>

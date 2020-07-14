@@ -78,18 +78,12 @@ const Button = styled.a`
   }
 
   &:hover {
+    transform: scale(1.03);
     font-size: 22px;
-    height: 52px;
-    margin: -2px -2px 29px -2px;
-    width: 204px;
   }
 
   &:last-child {
     margin-bottom: 0;
-
-    &:hover {
-      margin-bottom: -2px;
-    }
   }
 `
 

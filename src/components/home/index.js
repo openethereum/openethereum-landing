@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 import BottomSVG from './img/bottom.svg'
 import TopSVG from './img/top.svg'
@@ -89,50 +89,6 @@ const Button = styled.a`
 
 const imageInitialDisplacement = '37px'
 const animationDelay = '0.5s'
-const animationDuration = '1.7s'
-const animationDisplacement = '15px'
-
-const TopImageAnimationStart = keyframes`
-  0% {
-    top: ${imageInitialDisplacement};
-  }
-  100% {
-    top: 0;
-  }
-`
-
-const TopImageAnimationLoop = keyframes`
-  0% {
-    top: 0;
-  }
-  50% {
-    top: ${animationDisplacement};
-  }
-  100% {
-    top: 0;
-  }
-`
-
-const BottomImageAnimationStart = keyframes`
-  0% {
-    bottom: ${imageInitialDisplacement};;
-  }
-  100% {
-    bottom: 0;
-  }
-`
-
-const BottomImageAnimationLoop = keyframes`
-  0% {
-    bottom: 0;
-  }
-  50% {
-    bottom: ${animationDisplacement};
-  }
-  100% {
-    bottom: 0;
-  }
-`
 
 const ImageWrapper = styled.div`
   margin: 45px auto 50px;
@@ -147,15 +103,23 @@ const ImageWrapper = styled.div`
     position: relative;
     width: 196px;
 
+    .top {
+      transition: top ${animationDelay} ease-out 0s;
+      top: ${imageInitialDisplacement};
+    }
+
+    .bottom {
+      transition: bottom ${animationDelay} ease-out 0s;
+      bottom: ${imageInitialDisplacement};
+    }
+
     &:hover {
       .top {
-        animation: ${TopImageAnimationStart} ${animationDelay} ease-out 0s 1 backwards,
-          ${TopImageAnimationLoop} ${animationDuration} linear ${animationDelay} infinite;
+        top: 0;
       }
 
       .bottom {
-        animation: ${BottomImageAnimationStart} ${animationDelay} ease-out 0s 1,
-          ${BottomImageAnimationLoop} ${animationDuration} linear ${animationDelay} infinite;
+        bottom: 0;
       }
     }
   }

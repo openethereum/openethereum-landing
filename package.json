@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "open-ethereum-landing-page",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Open Ethereum Landing Page",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Open Ethereum",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.23.12",

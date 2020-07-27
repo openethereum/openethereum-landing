@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
-import openEthereumThumbnail from '../images/openethereum_website_thumbnail-01.png'
+import openEthereumThumbnail from '../images/og-image.png'
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(

@@ -3,6 +3,9 @@ node_js:
   - 'node'
 cache:
   yarn: true
+
+script:
+  - yarn build
 deploy:
     # Staging environment
   - provider: s3
@@ -10,7 +13,7 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key: $AWS_SECRET_ACCESS_KEY
     skip_cleanup: true
-    local_dir: build
+    local_dir: public
     upload-dir: current/app
     region: $AWS_DEFAULT_REGION
     on:
@@ -22,7 +25,7 @@ deploy:
     secret_access_key: $AWS_SECRET_ACCESS_KEY
     access_key_id: $AWS_ACCESS_KEY_ID
     skip_cleanup: true
-    local_dir: build
+    local_dir: public
     upload-dir: releases/$TRAVIS_TAG
     region: $AWS_DEFAULT_REGION
     on:

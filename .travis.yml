@@ -14,7 +14,7 @@ deploy:
     secret_access_key: $AWS_SECRET_ACCESS_KEY
     skip_cleanup: true
     local_dir: public
-    upload-dir: current/app
+    upload-dir: current
     region: $AWS_DEFAULT_REGION
     on:
       branch: master

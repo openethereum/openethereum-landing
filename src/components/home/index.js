@@ -162,7 +162,7 @@ const Home = ({ ...restProps }) => (
         rich ethereum client.
       </Text>
       <Button href="https://github.com/openethereum/openethereum/releases">Download</Button>
-      <Button href="https://openethereum.github.io/wiki/">Read the docs</Button>
+      <Button href="https://openethereum.github.io/">Read the docs</Button>
     </Col>
     <ImageWrapper>
       <Top className="image top" src={TopSVG} alt="" />
